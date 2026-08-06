@@ -31,4 +31,23 @@ class ResearchOrchestrator:
     3. Writer: Research data → Cited brief
     """
     
+
+    def __init__(self):
+        """Initialize all three agents"""
+        print("\n" + "=" * 50)
+        print("🚀 INITIALIZING RESEARCH SYSTEM")
+        print("=" * 50)
+        
+        # Validate configuration
+        if not config.validate():
+            print("\n❌ Configuration invalid. Please fix errors above.")
+            sys.exit(1)
+        
+        self.planner = PlannerAgent()
+        self.researcher = ResearcherAgent()
+        self.writer = WriterAgent()
+        
+        print("\n✅ All agents ready!")
+        print("   Pipeline: Planner → Researcher → Writer\n")
+    
     
