@@ -82,4 +82,43 @@ class ResearchOrchestrator:
                 state.mark_failed(f"Planner error: {e}")
                 return self._return_result(state, verbose)
             
+            # STEP 2: RESEARCHING
+            if verbose:
+                print("\n🔍 STEP 2: RESEARCHING")
+                print("-" * 40)
             
+            try:
+                r_start = time.time()
+                research_data = self.researcher.research(
+                    question,
+                    state.sub_questions
+                )
+                state.research_time = time.time() - r_start
+                state.search_results = research_data.get('sources', [])
+                state.research_summary = research_data.get('summary', '')
+                state.status = state.status.__class__.RESEARCHED
+            except Exception as e:
+                state.mark_failed(f"Researcher error: {e}")
+                return self._return_result(state, verbose)
+            
+            # STEP 3: WRITING
+            if verbose:
+                print("\n✍️  STEP 3: WRITING")
+                print("-" * 40)
+            
+            try:
+                w_start = time.time()
+                state.brief = self.writer.write_brief({
+                    'question': question,
+                    'summary': state.research_summary,
+                    'sources': state.search_results
+                })
+                state.writing_time = time.time() - w_start
+                state.mark_completed()
+            except Exception as e:
+                state.mark_failed(f"Writer error: {e}")
+                return self._return_result(state, verbose)
+            
+            return self._return_result(state, verbose)
+        
+    
