@@ -50,4 +50,36 @@ class ResearchOrchestrator:
         print("\n✅ All agents ready!")
         print("   Pipeline: Planner → Researcher → Writer\n")
     
-    
+    def research(self, question: str, verbose: bool = True) -> dict:
+            """
+            Execute the complete research pipeline.
+            
+            Args:
+                question: The research question
+                verbose: Print detailed progress
+            
+            Returns:
+                Dictionary with all results
+            """
+            state = ResearchState(question=question)
+            
+            if verbose:
+                print("\n" + "=" * 60)
+                print(f"🔬 RESEARCHING: {question}")
+                print("=" * 60)
+            
+            # STEP 1: PLANNING
+            if verbose:
+                print("\n📋 STEP 1: PLANNING")
+                print("-" * 40)
+            
+            try:
+                p_start = time.time()
+                state.sub_questions = self.planner.create_plan(question)
+                state.planning_time = time.time() - p_start
+                state.status = state.status.__class__.PLANNED
+            except Exception as e:
+                state.mark_failed(f"Planner error: {e}")
+                return self._return_result(state, verbose)
+            
+            
