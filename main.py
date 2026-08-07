@@ -120,5 +120,28 @@ class ResearchOrchestrator:
                 return self._return_result(state, verbose)
             
             return self._return_result(state, verbose)
+
         
+    def _return_result(self, state: ResearchState, verbose: bool) -> dict:
+            """Format and return results"""
+            if verbose and state.status.value == "completed":
+                print("\n" + "=" * 60)
+                print("✅ RESEARCH COMPLETE")
+                print("=" * 60)
+                print(f"   Time: {state.total_time:.1f}s")
+                print(f"   Sources: {state.source_count}")
+                print(f"   Brief: {len(state.brief)} chars")
+            
+            return {
+                'question': state.question,
+                'sub_questions': state.sub_questions,
+                'brief': state.brief,
+                'sources': state.search_results,
+                'sources_count': state.source_count,
+                'time': state.total_time,
+                'has_citations': state.has_citations,
+                'status': state.status.value
+            }
+    
+    
     
