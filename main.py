@@ -143,5 +143,22 @@ class ResearchOrchestrator:
                 'status': state.status.value
             }
     
+    def main():
+        """CLI interface"""
+        print("""
+    ╔══════════════════════════════════════════════════════╗
+    ║                                                      ║
+    ║     🔬 MULTI-AGENT RESEARCH ASSISTANT               ║
+    ║                                                      ║
+    ║     Planner → Researcher → Writer                   ║
+    ║     With Source Citations                           ║
+    ║                                                      ║
+    ╚══════════════════════════════════════════════════════╝
+        """)
+        
+        
     
+    
+    if __name__ == "__main__":
+        main()
     
