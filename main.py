@@ -156,7 +156,49 @@ class ResearchOrchestrator:
     ╚══════════════════════════════════════════════════════╝
         """)
         
+        # Check API key
+        if not config.GROQ_API_KEY or config.GROQ_API_KEY == "gsk_your_actual_key_here":
+            print("\n❌ ERROR: Valid GROQ_API_KEY not found!")
+            print("1. Get a free key at: https://console.groq.com")
+            print("2. Create .env file: GROQ_API_KEY=your_key_here")
+            return
         
+        try:
+            orchestrator = ResearchOrchestrator()
+        except Exception as e:
+            print(f"\n❌ Failed to initialize: {e}")
+            return
+        
+        while True:
+            print("\n" + "-" * 60)
+            question = input("\n🔍 Enter research question (or 'quit'): ").strip()
+            
+            if question.lower() in ['quit', 'exit', 'q']:
+                print("\n👋 Goodbye!")
+                break
+            
+            if not question:
+                continue
+            
+            result = orchestrator.research(question)
+            
+            if result['status'] == 'completed':
+                print("\n" + "=" * 60)
+                print("📄 RESEARCH BRIEF")
+                print("=" * 60)
+                print(result['brief'])
+                print("=" * 60)
+                
+                # Save option
+                save = input("\n💾 Save to file? (y/n): ").strip().lower()
+                if save == 'y':
+                    filename = f"research_{int(time.time())}.txt"
+                    with open(filename, 'w', encoding='utf-8') as f:
+                        f.write(f"QUESTION: {question}\n\n")
+                        f.write(result['brief'])
+                    print(f"✅ Saved to {filename}")
+            else:
+                print(f"\n❌ Research failed. Status: {result['status']}")
     
     
     if __name__ == "__main__":
