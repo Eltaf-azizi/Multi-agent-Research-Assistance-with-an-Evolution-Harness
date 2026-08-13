@@ -53,3 +53,57 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+@st.cache_resource
+def get_pipeline():
+    """Get or create pipeline (cached)"""
+    return ResearchPipeline()
+
+
+def main():
+    """Main Streamlit app"""
+    
+    setup_logging()
+    settings = get_settings()
+    
+    # Header
+    st.markdown("""
+    <div class="main-header">
+        <h1>🔬 Multi-Agent Research Assistant</h1>
+        <p>AI-Powered Research with Source Citations | Production Grade</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Sidebar
+    with st.sidebar:
+        st.header("⚙️ Configuration")
+        
+        st.subheader("Agents")
+        st.markdown("""
+        <div class="agent-card">
+            <b>📋 Planner</b><br>
+            <small>Decomposes questions into sub-tasks</small>
+        </div>
+        <div class="agent-card">
+            <b>🔍 Researcher</b><br>
+            <small>Searches web + local documents</small>
+        </div>
+        <div class="agent-card">
+            <b>✍️ Writer</b><br>
+            <small>Creates cited research briefs</small>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        st.subheader("Settings")
+        num_sources = st.slider("Sources per query", 2, 5, 3)
+        
+        st.markdown("---")
+        st.caption(f"v1.0.0 | Model: {settings.llm.model_name}")
+    
+    
+
+
+if __name__ == "__main__":
+    main()
