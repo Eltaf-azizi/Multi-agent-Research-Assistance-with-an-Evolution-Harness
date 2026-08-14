@@ -96,4 +96,161 @@
       "brief_length": 0,
       "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would accurat"
     },
-    
+    {
+      "id": 8,
+      "question": "What is CRISPR gene editing?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer was provided to rate."
+    },
+    {
+      "id": 9,
+      "question": "How does the internet work?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer provided to rate."
+    },
+    {
+      "id": 10,
+      "question": "What is machine learning?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The question is provided but the generated answer is missing, however, based on the gold standard, I"
+    },
+    {
+      "id": 11,
+      "question": "What is cloud computing?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    },
+    {
+      "id": 12,
+      "question": "How do electric vehicles work?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    },
+    {
+      "id": 13,
+      "question": "What is cybersecurity?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer was provided to rate."
+    },
+    {
+      "id": 14,
+      "question": "What is 5G technology?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    },
+    {
+      "id": 15,
+      "question": "How does DNA store genetic information?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would accurat"
+    },
+    {
+      "id": 16,
+      "question": "What is renewable energy?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, I'm assuming the generated ans"
+    },
+    {
+      "id": 17,
+      "question": "What is virtual reality?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer was provided to rate."
+    },
+    {
+      "id": 18,
+      "question": "How does encryption protect data?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer was provided to rate."
+    },
+    {
+      "id": 19,
+      "question": "What is the Internet of Things?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The question was not provided with a generated answer to rate. However, I can provide a general answ"
+    },
+    {
+      "id": 20,
+      "question": "What is deep learning?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    }
+  ]
+}
