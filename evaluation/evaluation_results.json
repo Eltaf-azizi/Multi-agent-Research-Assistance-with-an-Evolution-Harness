@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-29T20:55:46.738086",
+    "total_questions": 20,
+    "duration_seconds": 7.2
+  },
+  "averages": {
+    "kw": 0.0,
+    "llm": 3.5,
+    "fact": 0.0,
+    "comb": 28.0,
+    "time": 0.0
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "What is Python programming language?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The question is provided but the generated answer is missing, however, I can provide a perfect answe"
+    },
+    {
+      "id": 2,
+      "question": "What causes climate change?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would accurat"
+    },
+    {
+      "id": 3,
+      "question": "How does solar energy work?",
+      "keyword_score": 0.0,
+      "llm_score": 0,
+      "factual_score": 0.0,
+      "combined_score": 0.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "No answer was provided to rate."
+    },
+    {
+      "id": 4,
+      "question": "What is artificial intelligence?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    },
+    {
+      "id": 5,
+      "question": "What is blockchain technology?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would be: \"Bl"
+    },
+    {
+      "id": 6,
+      "question": "How do vaccines work?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would match t"
+    },
+    {
+      "id": 7,
+      "question": "What is quantum computing?",
+      "keyword_score": 0.0,
+      "llm_score": 5,
+      "factual_score": 0.0,
+      "combined_score": 40.0,
+      "sources": 0,
+      "time": 0.0,
+      "brief_length": 0,
+      "reason": "The generated answer is not provided, but based on the gold standard, a perfect answer would accurat"
+    },
+    
