@@ -77,4 +77,97 @@ class ResearchPipeline:
         
         return state
     
+    def _research_node(self, state: ResearchState) -> ResearchState:
+        """Research node"""
+        if state.status == PipelineStatus.FAILED:
+            return state
+        
+        logger.info("Research phase started")
+        state.status = PipelineStatus.RESEARCHING
+        
+        start = time.time()
+        
+        try:
+            research_data = self.researcher.research(
+                state.question,
+                state.sub_questions
+            )
+            
+            state.search_results = research_data.get('sources', [])
+            state.research_summary = research_data.get('summary', '')
+            state.status = PipelineStatus.RESEARCHED
+            state.research_time = time.time() - start
+            
+            logger.info(
+                "Research phase completed",
+                sources=len(state.search_results),
+                time=round(state.research_time, 2)
+            )
+        except Exception as e:
+            logger.error("Research failed", error=str(e))
+            state.mark_failed(str(e))
+        
+        return state
     
+    def _write_node(self, state: ResearchState) -> ResearchState:
+        """Writing node"""
+        if state.status == PipelineStatus.FAILED:
+            return state
+        
+        logger.info("Writing phase started")
+        state.status = PipelineStatus.WRITING
+        
+        start = time.time()
+        
+        try:
+            brief = self.writer.write_brief({
+                'question': state.question,
+                'summary': state.research_summary,
+                'sources': state.search_results
+            })
+            
+            state.brief = brief
+            state.writing_time = time.time() - start
+            state.mark_completed()
+            
+            logger.info(
+                "Writing phase completed",
+                brief_length=len(brief),
+                time=round(state.writing_time, 2)
+            )
+        except Exception as e:
+            logger.error("Writing failed", error=str(e))
+            state.mark_failed(str(e))
+        
+        return state
+    
+    def execute(self, question: str) -> ResearchState:
+        """
+        Execute the full research pipeline
+        
+        Args:
+            question: The research question
+            
+        Returns:
+            Final ResearchState with results
+        """
+        
+        logger.info("Pipeline execution started", question=question[:100])
+        
+        initial_state = ResearchState(question=question)
+        
+        try:
+            final_state = self.graph.invoke(initial_state)
+            
+            logger.info(
+                "Pipeline execution completed",
+                status=final_state.status.value,
+                total_time=round(final_state.total_time, 2)
+            )
+            
+            return final_state
+            
+        except Exception as e:
+            logger.error("Pipeline execution failed", error=str(e))
+            initial_state.mark_failed(str(e))
+            return initial_state
