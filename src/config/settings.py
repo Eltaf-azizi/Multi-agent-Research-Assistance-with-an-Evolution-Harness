@@ -51,3 +51,49 @@ class PathSettings(BaseSettings):
     logs_dir: Path = root_dir / "logs"
     documents_dir: Path = data_dir / "documents"
 
+
+class Settings(BaseSettings):
+    """Main settings class"""
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore"
+    )
+    
+    # API Keys
+    groq_api_key: Optional[str] = Field(default=None, validation_alias="GROQ_API_KEY")
+    gemini_api_key: Optional[str] = Field(default=None, validation_alias="GEMINI_API_KEY")
+    
+    # Sub-settings
+    llm: LLMSettings = LLMSettings()
+    search: SearchSettings = SearchSettings()
+    agents: AgentSettings = AgentSettings()
+    evaluation: EvaluationSettings = EvaluationSettings()
+    paths: PathSettings = PathSettings()
+    
+    # Application
+    debug: bool = False
+    log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
+    
+    @validator("groq_api_key")
+    def validate_api_key(cls, v):
+        """Ensure API key is set for Groq provider"""
+        if not v:
+            print("⚠️  WARNING: GROQ_API_KEY not set. Create a .env file or set environment variable.")
+        return v
+
+
+# Global settings instance
+_settings: Optional[Settings] = None
+
+
+def get_settings() -> Settings:
+    """Get or create settings instance (singleton pattern)"""
+    global _settings
+    if _settings is None:
+        _settings = Settings()
+        # Create directories
+        _settings.paths.logs_dir.mkdir(parents=True, exist_ok=True)
+        _settings.paths.data_dir.mkdir(parents=True, exist_ok=True)
+    return _settings
