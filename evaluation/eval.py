@@ -85,4 +85,71 @@ Generated Answer: {generated[:500]}
         except Exception as e:
             return 0, f"Judge error: {e}"
     
+    def factual_accuracy_score(self, generated: str, gold: str) -> float:
+        """Simple factual overlap score"""
+        gold_words = set(gold.lower().split())
+        gen_words = set(generated.lower().split())
+        
+        if not gold_words:
+            return 0.0
+        
+        overlap = gold_words.intersection(gen_words)
+        return (len(overlap) / len(gold_words)) * 100
+    
+    def run_evaluation(self) -> list:
+        """Run complete evaluation"""
+        
+        self.start_time = time.time()
+        test_questions = self.load_test_set()
+        
+        print(f"\n{'='*70}")
+        print(f"📊 EVALUATION STARTED")
+        print(f"{'='*70}")
+        print(f"Questions: {len(test_questions)}")
+        print(f"Methods: Keyword Match, LLM Judge, Factual Accuracy\n")
+        
+        for i, test in enumerate(test_questions, 1):
+            print(f"\n{'='*70}")
+            print(f"[{i}/{len(test_questions)}] {test['question'][:60]}...")
+            print(f"{'='*70}")
+            
+            # Run research
+            q_start = time.time()
+            result = self.orchestrator.research(test['question'], verbose=False)
+            q_time = time.time() - q_start
+            
+            # Calculate scores
+            kw_score = self.keyword_score(result['brief'], test['keywords'])
+            llm_score, reason = self.llm_judge_score(
+                test['question'], result['brief'], test['gold_answer']
+            )
+            fact_score = self.factual_accuracy_score(result['brief'], test['gold_answer'])
+            
+            # Combined score (weighted)
+            combined = (kw_score * 0.3) + (llm_score * 20 * 0.4) + (fact_score * 0.3)
+            
+            # Store result
+            eval_result = {
+                'id': test['id'],
+                'question': test['question'][:50],
+                'keyword_score': round(kw_score, 1),
+                'llm_score': llm_score,
+                'factual_score': round(fact_score, 1),
+                'combined_score': round(combined, 1),
+                'sources': result['sources_count'],
+                'time': round(q_time, 2),
+                'brief_length': len(result['brief']),
+                'reason': reason[:100]
+            }
+            
+            self.results.append(eval_result)
+            
+            print(f"   KW: {kw_score:.1f}% | LLM: {llm_score}/5 | Fact: {fact_score:.1f}% | Combined: {combined:.1f}%")
+        
+        # Print and save
+        self.print_table()
+        self.save_results()
+        
+        return self.results
+    
     
