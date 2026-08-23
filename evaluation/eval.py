@@ -152,4 +152,85 @@ Generated Answer: {generated[:500]}
         
         return self.results
     
+    def print_table(self):
+        """Print formatted results table"""
+        
+        print("\n\n" + "="*90)
+        print("📊 FINAL EVALUATION RESULTS")
+        print("="*90)
+        
+        # Header
+        header = f"{'ID':<5} {'Question':<25} {'KW%':<8} {'LLM':<6} {'Fact%':<8} {'Comb%':<8} {'Time':<8}"
+        print(header)
+        print("-"*90)
+        
+        # Rows
+        for r in self.results:
+            row = f"{r['id']:<5} {r['question'][:23]:<25} {r['keyword_score']:<8.1f} "
+            row += f"{r['llm_score']:<6} {r['factual_score']:<8.1f} {r['combined_score']:<8.1f} {r['time']:<8.1f}"
+            print(row)
+        
+        # Averages
+        print("-"*90)
+        avgs = self._calculate_averages()
+        avg_row = f"{'AVG':<5} {'':<25} {avgs['kw']:<8.1f} {avgs['llm']:<6.1f} {avgs['fact']:<8.1f} {avgs['comb']:<8.1f} {avgs['time']:<8.1f}"
+        print(avg_row)
+        print("="*90)
+        
+        # Grade
+        if avgs['comb'] >= 80:
+            grade = "🏆 A - Excellent!"
+        elif avgs['comb'] >= 60:
+            grade = "✅ B - Good"
+        elif avgs['comb'] >= 40:
+            grade = "⚠️  C - Needs Improvement"
+        else:
+            grade = "❌ D - Poor"
+        
+        print(f"\n📈 Overall Score: {avgs['comb']:.1f}%")
+        print(f"   Grade: {grade}")
+        
+        total_time = time.time() - self.start_time
+        print(f"   Total Time: {total_time:.1f}s")
+        print(f"   Avg Time/Question: {avgs['time']:.1f}s")
+    
+    def _calculate_averages(self) -> dict:
+        """Calculate average scores"""
+        n = len(self.results)
+        return {
+            'kw': sum(r['keyword_score'] for r in self.results) / n,
+            'llm': sum(r['llm_score'] for r in self.results) / n,
+            'fact': sum(r['factual_score'] for r in self.results) / n,
+            'comb': sum(r['combined_score'] for r in self.results) / n,
+            'time': sum(r['time'] for r in self.results) / n
+        }
+    
+    def save_results(self):
+        """Save to JSON file"""
+        output = {
+            'metadata': {
+                'timestamp': datetime.now().isoformat(),
+                'total_questions': len(self.results),
+                'duration_seconds': round(time.time() - self.start_time, 1)
+            },
+            'averages': self._calculate_averages(),
+            'results': self.results
+        }
+        
+        filepath = Path(__file__).parent / "evaluation_results.json"
+        with open(filepath, 'w') as f:
+            json.dump(output, f, indent=2)
+        
+        print(f"\n💾 Results saved to {filepath}")
+
+if __name__ == "__main__":
+    print("""
+╔══════════════════════════════════════════════════════╗
+║     📊 COMPLETE EVALUATION HARNESS                  ║
+║     20 Questions | 3 Scoring Methods               ║
+╚══════════════════════════════════════════════════════╝
+    """)
+    
+    evaluator = Evaluator()
+    evaluator.run_evaluation()
     
