@@ -48,4 +48,52 @@
       "gold_answer": "Quantum computing uses quantum bits or qubits that can exist in multiple states simultaneously due to superposition. This allows quantum computers to process vast amounts of information and solve certain complex problems much faster than classical computers.",
       "keywords": ["quantum computing", "qubits", "superposition", "quantum", "computing", "classical computers"]
     },
+    {
+      "id": 8,
+      "question": "What is CRISPR gene editing?",
+      "gold_answer": "CRISPR is a revolutionary gene-editing technology that allows scientists to modify DNA sequences. It uses the Cas9 protein and a guide RNA to cut DNA at specific locations, enabling genes to be added, removed, or altered. Applications include treating genetic diseases and improving crops.",
+      "keywords": ["crispr", "gene editing", "dna", "cas9", "genetic", "rna"]
+    },
+    {
+      "id": 9,
+      "question": "How does the internet work?",
+      "gold_answer": "The internet is a global network of interconnected computers that communicate using standardized protocols. Data is broken into packets, routed through various networks using TCP/IP protocols. ISPs provide access, and DNS translates domain names to IP addresses.",
+      "keywords": ["internet", "network", "packets", "tcp/ip", "protocols", "dns", "isp"]
+    },
+    {
+      "id": 10,
+      "question": "What is machine learning?",
+      "gold_answer": "Machine learning is a subset of artificial intelligence where systems learn from data without explicit programming. Algorithms identify patterns and improve through experience. Types include supervised learning, unsupervised learning, and reinforcement learning.",
+      "keywords": ["machine learning", "artificial intelligence", "data", "algorithms", "supervised", "unsupervised", "reinforcement"]
+    },
+    {
+      "id": 11,
+      "question": "What is cloud computing?",
+      "gold_answer": "Cloud computing delivers computing services over the internet including servers, storage, databases, networking, and software. Users access resources on-demand and pay only for what they use. Major providers include AWS, Microsoft Azure, and Google Cloud.",
+      "keywords": ["cloud computing", "internet", "servers", "storage", "aws", "azure", "google cloud"]
+    },
+    {
+      "id": 12,
+      "question": "How do electric vehicles work?",
+      "gold_answer": "Electric vehicles use electric motors powered by rechargeable battery packs instead of internal combustion engines. They produce zero direct emissions and are more energy-efficient. Regenerative braking recovers energy during deceleration to recharge the battery.",
+      "keywords": ["electric vehicles", "battery", "electric motors", "emissions", "rechargeable", "regenerative braking"]
+    },
+    {
+      "id": 13,
+      "question": "What is cybersecurity?",
+      "gold_answer": "Cybersecurity protects computer systems, networks, and data from digital attacks, theft, and damage. It includes measures like firewalls, encryption, authentication, and intrusion detection systems. The goal is to ensure confidentiality, integrity, and availability of information.",
+      "keywords": ["cybersecurity", "protection", "encryption", "firewalls", "authentication", "confidentiality"]
+    },
+    {
+      "id": 14,
+      "question": "What is 5G technology?",
+      "gold_answer": "5G is the fifth generation of mobile network technology offering faster speeds up to 20 Gbps, lower latency around 1ms, and greater capacity. It enables applications like autonomous vehicles, smart cities, IoT, and augmented reality.",
+      "keywords": ["5g", "mobile network", "speed", "latency", "iot", "autonomous vehicles"]
+    },
+    {
+      "id": 15,
+      "question": "How does DNA store genetic information?",
+      "gold_answer": "DNA stores genetic information using four nucleotide bases: adenine, thymine, guanine, and cytosine. These bases pair specifically and form the double helix structure. Sequences of three bases called codons specify which amino acids form proteins.",
+      "keywords": ["dna", "nucleotides", "adenine", "thymine", "guanine", "cytosine", "double helix", "codons"]
+    },
     
