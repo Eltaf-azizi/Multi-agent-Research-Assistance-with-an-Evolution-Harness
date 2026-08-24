@@ -96,4 +96,35 @@
       "gold_answer": "DNA stores genetic information using four nucleotide bases: adenine, thymine, guanine, and cytosine. These bases pair specifically and form the double helix structure. Sequences of three bases called codons specify which amino acids form proteins.",
       "keywords": ["dna", "nucleotides", "adenine", "thymine", "guanine", "cytosine", "double helix", "codons"]
     },
-    
+    {
+      "id": 16,
+      "question": "What is renewable energy?",
+      "gold_answer": "Renewable energy comes from sources that are naturally replenished like sunlight, wind, water, and geothermal heat. It produces significantly less pollution than fossil fuels and is sustainable long-term. Common types include solar, wind, hydroelectric, and biomass energy.",
+      "keywords": ["renewable energy", "sunlight", "wind", "solar", "hydroelectric", "sustainable", "fossil fuels"]
+    },
+    {
+      "id": 17,
+      "question": "What is virtual reality?",
+      "gold_answer": "Virtual reality creates immersive, computer-generated 3D environments that users can interact with using special headsets and controllers. It tracks head and body movements to create a sense of presence. Applications include gaming, training, education, and therapy.",
+      "keywords": ["virtual reality", "immersive", "3d", "headsets", "simulation", "gaming", "training"]
+    },
+    {
+      "id": 18,
+      "question": "How does encryption protect data?",
+      "gold_answer": "Encryption converts readable data into an unreadable format using algorithms and cryptographic keys. Only authorized parties with the correct decryption key can access the original information. Types include symmetric encryption and asymmetric encryption.",
+      "keywords": ["encryption", "decryption", "algorithms", "cryptographic", "keys", "symmetric", "asymmetric"]
+    },
+    {
+      "id": 19,
+      "question": "What is the Internet of Things?",
+      "gold_answer": "The Internet of Things connects everyday physical devices to the internet, enabling them to collect and exchange data. Examples include smart home devices, wearable fitness trackers, and industrial sensors. IoT enables automation and remote monitoring.",
+      "keywords": ["internet of things", "iot", "devices", "sensors", "smart home", "automation", "data"]
+    },
+    {
+      "id": 20,
+      "question": "What is deep learning?",
+      "gold_answer": "Deep learning is a subset of machine learning using multi-layered neural networks to learn from large amounts of data. It excels at complex tasks like image recognition, natural language processing, and speech recognition. It requires substantial computing power.",
+      "keywords": ["deep learning", "neural networks", "machine learning", "data", "image recognition", "nlp"]
+    }
+  ]
+}
