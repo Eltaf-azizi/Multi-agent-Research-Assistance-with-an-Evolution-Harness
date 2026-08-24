@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "name": "Research Assistant Evaluation Set",
+    "version": "1.0",
+    "total_questions": 20,
+    "description": "20 test questions with gold answers and keywords for evaluation"
+  },
+  "test_questions": [
+    {
+      "id": 1,
+      "question": "What is Python programming language?",
+      "gold_answer": "Python is a high-level, interpreted programming language known for readability and simplicity. Created by Guido van Rossum in 1991, it supports multiple programming paradigms and is widely used in web development, data science, artificial intelligence, and automation.",
+      "keywords": ["python", "programming", "guido van rossum", "interpreted", "high-level", "web development", "data science"]
+    },
+    {
+      "id": 2,
+      "question": "What causes climate change?",
+      "gold_answer": "Climate change is primarily caused by human activities that release greenhouse gases, especially carbon dioxide from burning fossil fuels. Deforestation, industrial processes, and agriculture also contribute significantly by increasing greenhouse gas concentrations in the atmosphere.",
+      "keywords": ["climate change", "greenhouse gases", "carbon dioxide", "fossil fuels", "deforestation", "emissions", "global warming"]
+    },
+    {
+      "id": 3,
+      "question": "How does solar energy work?",
+      "gold_answer": "Solar energy works by converting sunlight into electricity using photovoltaic cells. When photons from sunlight hit the solar panel, they knock electrons loose from atoms, creating an electric current. This DC electricity is then converted to AC for use in homes and businesses.",
+      "keywords": ["solar energy", "photovoltaic", "sunlight", "electricity", "solar panels", "electrons", "current"]
+    },
+    {
+      "id": 4,
+      "question": "What is artificial intelligence?",
+      "gold_answer": "Artificial intelligence is the simulation of human intelligence by machines, especially computer systems. It encompasses machine learning, natural language processing, computer vision, and robotics. AI systems can learn from data, recognize patterns, make decisions, and solve problems.",
+      "keywords": ["artificial intelligence", "machines", "machine learning", "data", "human intelligence", "computer systems"]
+    },
+    {
+      "id": 5,
+      "question": "What is blockchain technology?",
+      "gold_answer": "Blockchain is a decentralized, distributed digital ledger that records transactions across many computers. It uses cryptography to ensure security and immutability. Each block contains transaction data and is linked to previous blocks, forming a chain. It powers cryptocurrencies like Bitcoin.",
+      "keywords": ["blockchain", "decentralized", "distributed", "ledger", "cryptography", "transactions", "bitcoin"]
+    },
+    {
+      "id": 6,
+      "question": "How do vaccines work?",
+      "gold_answer": "Vaccines work by introducing a weakened or inactive part of a pathogen into the body. This stimulates the immune system to produce antibodies and memory cells without causing the disease. When exposed to the real pathogen later, the immune system can quickly recognize and fight it.",
+      "keywords": ["vaccines", "immune system", "antibodies", "pathogen", "memory cells", "immunity"]
+    },
+    {
+      "id": 7,
+      "question": "What is quantum computing?",
+      "gold_answer": "Quantum computing uses quantum bits or qubits that can exist in multiple states simultaneously due to superposition. This allows quantum computers to process vast amounts of information and solve certain complex problems much faster than classical computers.",
+      "keywords": ["quantum computing", "qubits", "superposition", "quantum", "computing", "classical computers"]
+    },
+    
