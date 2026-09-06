@@ -68,5 +68,50 @@ class ResearcherAgent(BaseAgent):
             'summary': overall,
             'total_sources': len(all_sources)
         }
+
     
+    def _gather_sources(self, query: str) -> list:
+        """Gather from both web and local documents"""
+        sources = []
+        
+        # Search web
+        web_results = self.web_search.search(query, num_results=2)
+        sources.extend(web_results)
+        
+        # Search local documents
+        local_results = self.doc_store.search(query, num_results=1)
+        sources.extend(local_results)
+        
+        return sources
     
+    def _summarize(self, question: str, sources: list) -> str:
+        """Summarize search results for a single question"""
+        if not sources:
+            return ""
+        
+        # Format sources
+        source_text = ""
+        for i, s in enumerate(sources, 1):
+            source_text += f"[{i}] {s.get('title', 'Untitled')}\n"
+            source_text += f"    {s.get('snippet', '')[:300]}\n\n"
+        
+        system_prompt = """Summarize these search results in 2-3 factual sentences.
+Include source citations like [1], [2]. Be precise and factual."""
+        
+        user_prompt = f"Question: {question}\n\nSources:\n{source_text}"
+        
+        return self.call_llm(system_prompt, user_prompt)
+    
+    def _synthesize(self, question: str, summaries: list) -> str:
+        """Combine all summaries into one comprehensive overview"""
+        if not summaries:
+            return "No research data available."
+        
+        combined = "\n\n".join([s for s in summaries if s])
+        
+        system_prompt = """Synthesize these research summaries into one comprehensive overview.
+Keep all source citations. Be factual and thorough."""
+        
+        user_prompt = f"Main Question: {question}\n\nResearch Summaries:\n{combined}"
+        
+        return self.call_llm(system_prompt, user_prompt)
