@@ -1,15 +1,6 @@
 <h1 align="center"> Multi-agent-Research-Assistance-with-an-Evolution-Harness </h1>
 
-An AI-powered research system with three cooperating agents: Planner, Researcher, and Writer. Generates cited research briefs with automatic evaluation.
+**Retrieval-Augmented Generation over Real Constitutional Documents with Grounded Citations**
 
-## 🎯 Features
+A production-grade RAG system that answers questions about constitutional documents from six nations with full source citations and hallucination prevention.
 
-- **3 AI Agents**: Planner → Researcher → Writer pipeline
-- **Web Search**: Free DuckDuckGo integration
-- **Local Documents**: Search 50 sample documents
-- **Source Citations**: Every claim has [Source X] citations
-- **Evaluation Suite**: 20 test questions with 3 scoring methods
-- **Web UI**: Professional Streamlit interface
-- **CLI Tool**: Command-line interface
-- **Caching**: SQLite response cache
-- **Metrics**: Performance tracking per agent
