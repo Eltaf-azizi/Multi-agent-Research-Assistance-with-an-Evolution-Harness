@@ -32,3 +32,13 @@ A production-grade RAG system that answers questions about constitutional docume
 This project implements a Retrieval-Augmented Generation (RAG) pipeline that grounds Large Language Model outputs in verified constitutional documents. The system retrieves semantically relevant passages, generates answers with mandatory citations, and refuses to respond when confidence is insufficient.
 
 Built as part of the Eltaf Year 1 curriculum — **E2 Project · Q3 History & Politics.**
+
+## Why RAG?
+Large Language Models hallucinate. In domains requiring factual precision — such as constitutional law — this is unacceptable. RAG solves this by:
+
+1. Retrieving relevant context from verified documents
+2. Grounding the LLM's answer exclusively in that context
+3. Citing every claim with the source file and page number
+4. Refusing when confidence falls below a threshold
+
+
