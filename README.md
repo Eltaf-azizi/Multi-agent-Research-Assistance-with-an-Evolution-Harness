@@ -62,3 +62,10 @@ Large Language Models hallucinate. In domains requiring factual precision — su
 │  📄 constitution_pakistan.pdf — Page 12 (87.1%)        │
 └─────────────────────────────────────────────────────────┘
 ```
+
+## Refusal Example
+```text
+Q: What is the recipe for chocolate cake?
+A: "I don't have enough information in the provided 
+   documents to answer this question."
+```
