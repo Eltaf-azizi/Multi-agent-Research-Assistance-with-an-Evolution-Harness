@@ -41,4 +41,24 @@ Large Language Models hallucinate. In domains requiring factual precision — su
 3. Citing every claim with the source file and page number
 4. Refusing when confidence falls below a threshold
 
-
+## 🎬 Demo
+### Web Interface
+```text
+┌─────────────────────────────────────────────────────────┐
+│  📜 Constitutional RAG Q&A                              │
+│  ───────────────────────────────────────────────────── │
+│  🔍 Ask a Question                                      │
+│  [What fundamental rights are guaranteed?]              │
+│                                                         │
+│  ───────────────────────────────────────────────────── │
+│  📝 Answer                                              │
+│  Citizens have the right to freedom of speech,          │
+│  assembly, and religion [Source: constitution_usa.pdf,  │
+│  Page: 5]. Equality before law is guaranteed            │
+│  [Source: constitution_pakistan.pdf, Page: 12]...       │
+│                                                         │
+│  📚 Sources Used                                        │
+│  📄 constitution_usa.pdf — Page 5 (92.3%)              │
+│  📄 constitution_pakistan.pdf — Page 12 (87.1%)        │
+└─────────────────────────────────────────────────────────┘
+```
