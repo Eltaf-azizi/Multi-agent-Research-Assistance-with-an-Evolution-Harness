@@ -109,3 +109,25 @@ A: "I don't have enough information in the provided
         │ [Source: file, Pg]  │
         └─────────────────────┘
 ```
+
+## Installation
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/constitutional-rag-qa.git
+cd constitutional-rag-qa
+
+# 2. Create virtual environment
+python -m venv venv
+
+# 3. Activate (Windows)
+venv\Scripts\Activate.ps1
+
+# 3. Activate (Linux/Mac)
+source venv/bin/activate
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Install dev dependencies (optional)
+pip install -r requirements-dev.txt
+```
