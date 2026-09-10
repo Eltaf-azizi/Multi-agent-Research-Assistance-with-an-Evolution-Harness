@@ -1,133 +1,33 @@
 <h1 align="center"> Multi-agent-Research-Assistance-with-an-Evolution-Harness </h1>
 
-**Retrieval-Augmented Generation over Real Constitutional Documents with Grounded Citations**
+> Retrieval-Augmented Generation over Real Constitutional Documents with Grounded Citations
 
-A production-grade RAG system that answers questions about constitutional documents from six nations with full source citations and hallucination prevention.
+Hey! This is my RAG project — it answers questions about constitutions from 6 countries, always cites its sources, and refuses to make stuff up when it doesn't know the answer.
 
-## 📋 Table of Contents
- - About the Project
- - Features
- - Demo
- - System Architecture
- - Countries Covered
- - Tech Stack
- - Getting Started
-   - Prerequisites
-   - Installation
-   - Quick Start
- - Usage
-   - Command Line
-   - Web Interface
-   - Example Queries
- - Configuration
- - Evaluation
- - Project Structure
- - Testing
- - Troubleshooting
- - Contributing
- - License
- - Acknowledgments
+---
 
-## 📖 About the Project
-This project implements a Retrieval-Augmented Generation (RAG) pipeline that grounds Large Language Model outputs in verified constitutional documents. The system retrieves semantically relevant passages, generates answers with mandatory citations, and refuses to respond when confidence is insufficient.
+## 🤔 What is this?
 
-Built as part of the Eltaf Year 1 curriculum — **E2 Project · Q3 History & Politics.**
+I built this to solve a simple problem: LLMs hallucinate. They confidently make up facts that sound real but aren't. When you're dealing with constitutional law, that's a problem.
 
-## Why RAG?
-Large Language Models hallucinate. In domains requiring factual precision — such as constitutional law — this is unacceptable. RAG solves this by:
+So this system:
+1. Takes your question
+2. Searches through real constitution PDFs
+3. Finds the most relevant sections
+4. Tells the LLM: "Answer using ONLY this, and cite everything"
+5. If nothing relevant is found → "I don't have enough information"
 
-1. Retrieving relevant context from verified documents
-2. Grounding the LLM's answer exclusively in that context
-3. Citing every claim with the source file and page number
-4. Refusing when confidence falls below a threshold
+No more guessing. No more fake citations.
 
-## 🎬 Demo
-### Web Interface
-```text
-┌─────────────────────────────────────────────────────────┐
-│  📜 Constitutional RAG Q&A                              │
-│  ───────────────────────────────────────────────────── │
-│  🔍 Ask a Question                                      │
-│  [What fundamental rights are guaranteed?]              │
-│                                                         │
-│  ───────────────────────────────────────────────────── │
-│  📝 Answer                                              │
-│  Citizens have the right to freedom of speech,          │
-│  assembly, and religion [Source: constitution_usa.pdf,  │
-│  Page: 5]. Equality before law is guaranteed            │
-│  [Source: constitution_pakistan.pdf, Page: 12]...       │
-│                                                         │
-│  📚 Sources Used                                        │
-│  📄 constitution_usa.pdf — Page 5 (92.3%)              │
-│  📄 constitution_pakistan.pdf — Page 12 (87.1%)        │
-└─────────────────────────────────────────────────────────┘
-```
+---
 
-## Refusal Example
-```text
-Q: What is the recipe for chocolate cake?
-A: "I don't have enough information in the provided 
-   documents to answer this question."
-```
+## ✨ Features
 
-## 🏗️ System Architecture
-```text
-┌──────────────────────────────────────────────────────────────┐
-│                        USER QUERY                            │
-└───────────────────────────┬──────────────────────────────────┘
-                            │
-                            ▼
-┌──────────────────────────────────────────────────────────────┐
-│                     RETRIEVAL MODULE                         │
-│                                                              │
-│  ┌──────────────┐   ┌─────────────┐   ┌─────────────────┐   │
-│  │ Query Text   │──▶│  Embedding  │──▶│  ChromaDB       │   │
-│  │              │   │  (384-dim)  │   │  (Top-K=3)      │   │
-│  └──────────────┘   └─────────────┘   └────────┬────────┘   │
-│                                                 │            │
-│                              Similarity Score ≥ Threshold   │
-└─────────────────────────────────────────────────┬────────────┘
-                                                  │
-                        ┌─────────────────────────┘
-                        │
-                        ▼
-              ┌──────────────────┐
-              │ Threshold ≥ 0.5? │
-              └────────┬─────────┘
-                 YES   │   NO
-                  │    │
-                  ▼    ▼
-        ┌─────────────┐  ┌──────────────────────────┐
-        │ GENERATION  │  │ REFUSAL                  │
-        │ Llama 3.1   │  │ "I don't have enough     │
-        │ + Context   │  │  information..."         │
-        └─────────────┘  └──────────────────────────┘
-                  │
-                  ▼
-        ┌─────────────────────┐
-        │ Cited Answer        │
-        │ [Source: file, Pg]  │
-        └─────────────────────┘
-```
+- 🔍 **Semantic search** — understands meaning, not just keywords
+- 📄 **6 constitutions** — USA, France, Germany, Pakistan, Norway, Canada
+- 🎯 **Forced citations** — every fact has `[Source: filename, Page: X]`
+- 🚫 **No hallucinations** — refuses below similarity threshold
+- 🖥️ **Streamlit UI** — clean web interface
+- 🧪 **Tested** — pytest suite + 30-question evaluation
+- ⚙️ **Configurable** — chunk size, threshold, model, all adjustable
 
-## Installation
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/constitutional-rag-qa.git
-cd constitutional-rag-qa
-
-# 2. Create virtual environment
-python -m venv venv
-
-# 3. Activate (Windows)
-venv\Scripts\Activate.ps1
-
-# 3. Activate (Linux/Mac)
-source venv/bin/activate
-
-# 4. Install dependencies
-pip install -r requirements.txt
-
-# 5. Install dev dependencies (optional)
-pip install -r requirements-dev.txt
-```
