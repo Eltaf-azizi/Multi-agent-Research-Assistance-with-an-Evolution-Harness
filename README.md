@@ -43,3 +43,14 @@ No more guessing. No more fake citations.
 | 🇨🇦 Canada | Constitution Act 1982 | 463 |
 | **Total** | | **2,859** |
 
+## 🛠️ Tech Stack
+
+| Layer | Tool | Why |
+|-------|------|-----|
+| Embeddings | `sentence-transformers` (all-MiniLM-L6-v2) | Free, CPU-friendly, 384 dims |
+| Vector DB | ChromaDB | Simple, local, persistent |
+| LLM | Ollama (Llama 3.1) | Free, local, no API costs |
+| PDF parsing | PyPDF2 | Extracts text with page numbers |
+| UI | Streamlit | Fast to build, looks decent |
+| Testing | pytest | Catches bugs before they ship |
+| Language | Python 3.9+ | — |
