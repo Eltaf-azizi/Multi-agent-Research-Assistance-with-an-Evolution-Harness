@@ -31,3 +31,15 @@ No more guessing. No more fake citations.
 - 🧪 **Tested** — pytest suite + 30-question evaluation
 - ⚙️ **Configurable** — chunk size, threshold, model, all adjustable
 
+## 🌍 Countries Covered
+
+| Country | Document | Chunks |
+|---------|----------|--------|
+| 🇺🇸 USA | Constitution | 647 |
+| 🇫🇷 France | Constitution of 1958 | 202 |
+| 🇩🇪 Germany | Basic Law | 470 |
+| 🇵🇰 Pakistan | Constitution of 1973 | 975 |
+| 🇳🇴 Norway | Constitution of 1814 | 102 |
+| 🇨🇦 Canada | Constitution Act 1982 | 463 |
+| **Total** | | **2,859** |
+
