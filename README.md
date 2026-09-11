@@ -108,7 +108,7 @@ python src/generate.py
 streamlit run app.py
 ```
 
-💬 Example Queries
+## 💬 Example Queries
 Try asking things like:
 
  - "What fundamental rights do citizens have?"
@@ -118,3 +118,13 @@ Try asking things like:
  - "How are judges appointed?"
 
 And out-of-scope questions like "What's the recipe for pizza?" will get refused.
+
+## 📊 Evaluation
+I wrote 30 test questions across 8 categories. The system measures:
+ - **Hit rate** — did search find the right document? (target: ≥80%)
+ - **Refusal rate** — does it refuse on unrelated questions? (target: ≥80%)
+ - **Citation rate** — does every answer have sources?
+
+```bash
+python src/eval.py
+```
