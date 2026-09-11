@@ -83,3 +83,27 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 ```
+
+## Running the Pipeline
+```bash
+# 1. Add PDFs to data/documents/
+
+# 2. Ingest documents (load + chunk)
+python src/ingest.py
+
+# 3. Create embeddings + store in ChromaDB
+python src/embed_store.py
+
+# 4. Pull LLM model (in a separate terminal)
+ollama pull llama3.1
+ollama serve
+
+# 5. Test retrieval
+python src/retrieve.py
+
+# 6. Test answer generation
+python src/generate.py
+
+# 7. Launch the UI
+streamlit run app.py
+```
