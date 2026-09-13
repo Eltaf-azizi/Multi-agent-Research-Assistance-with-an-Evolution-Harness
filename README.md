@@ -152,3 +152,12 @@ constitutional-rag-qa/
 ├── requirements.txt
 └── README.md
 ```
+
+## 🧪 Testing
+```bash
+# Run all tests
+pytest tests/ -v
+
+# With coverage
+pytest tests/ --cov=src --cov-report=html
+```
